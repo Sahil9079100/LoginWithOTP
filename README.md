@@ -24,148 +24,124 @@ Clone this repository to your local machine:
 ```bash
 git clone https://github.com/your-username/login-app.git
 cd login-app
+```
 
-2. Set Up the Backend
+### 2. Set Up the Backend
+Navigate to the backend folder:
+```bash
+cd backend
+```
 
-    Navigate to the backend folder:
-    bash
-    Copy
+Install dependencies:
+```bash
+npm install
+```
 
-    cd backend
+Set up the Fast2SMS API key:
+- Sign up at Fast2SMS and get your API key.
+- Open the `server.js` file and replace `YOUR_FAST2SMS_API_KEY` with your actual API key:
+```javascript
+const apiKey = 'YOUR_FAST2SMS_API_KEY'; // Replace with your Fast2SMS API key
+```
 
-    Install dependencies:
-    bash
-    Copy
+Start the backend server:
+```bash
+node server.js
+```
+The backend will run on `http://localhost:5000`.
 
-    npm install
+### 3. Set Up the Frontend
+Navigate to the frontend folder:
+```bash
+cd ../frontend
+```
 
-    Set up the Fast2SMS API key:
+Install dependencies:
+```bash
+npm install
+```
 
-        Sign up at Fast2SMS and get your API key.
+Start the React app:
+```bash
+npm start
+```
+The frontend will run on `http://localhost:3000`.
 
-        Open the server.js file and replace YOUR_FAST2SMS_API_KEY with your actual API key:
-        javascript
-        Copy
+---
 
-        const apiKey = 'YOUR_FAST2SMS_API_KEY'; // Replace with your Fast2SMS API key
+## Project Structure
 
-    Start the backend server:
-    bash
-    Copy
+### Backend (`backend/server.js`)
+- Handles user authentication and OTP verification.
+- Uses Fast2SMS to send OTPs via SMS.
+- Contains dummy user data for testing:
+```javascript
+const users = [
+  { username: 'Sahil Vaishnav', phone: '123456789' },
+  { username: 'Rishi Puri', phone: '987654321' },
+  { username: 'Ankit Saini', phone: '011223344' },
+];
+```
+Note: In a real project, replace this with a database (e.g., MongoDB, PostgreSQL).
 
-    node server.js
+### Frontend (`frontend/src/App.js`)
+- Provides a user interface for login and OTP verification.
+- Communicates with the backend using axios.
 
-    The backend will run on http://localhost:5000.
+---
 
-3. Set Up the Frontend
+## Running the Project
 
-    Navigate to the frontend folder:
-    bash
-    Copy
+### Backend
+Navigate to the backend folder:
+```bash
+cd backend
+```
 
-    cd ../frontend
+Start the server:
+```bash
+node server.js
+```
 
-    Install dependencies:
-    bash
-    Copy
+### Frontend
+Navigate to the frontend folder:
+```bash
+cd ../frontend
+```
 
-    npm install
+Start the React app:
+```bash
+npm start
+```
 
-    Start the React app:
-    bash
-    Copy
+---
 
-    npm start
+## Usage
+- Open the frontend in your browser: `http://localhost:3000`.
+- Enter a valid username and phone number (from the dummy data).
+- Click `Get OTP` to receive an OTP via SMS.
+- Enter the OTP and click `Login`.
+- If the OTP is correct, you'll see a success message: "Hello `<Username>`, you are logged in!"
 
-    The frontend will run on http://localhost:3000.
+---
 
-
-    Project Structure
-Backend (backend/server.js)
-
-    Handles user authentication and OTP verification.
-
-    Uses Fast2SMS to send OTPs via SMS.
-
-    Contains dummy user data for testing:
-    javascript
-    Copy
-
-    const users = [
-        { username: 'Sahil Vaishnav', phone: '123456789' },
-        { username: 'Rishi Puri', phone: '987654321' },
-        { username: 'Ankit Saini', phone: '011223344' },
-    ];
-
-    Note: In a real project, replace this with a database (e.g., MongoDB, PostgreSQL).
-
-Frontend (frontend/src/App.js)
-
-    Provides a user interface for login and OTP verification.
-
-    Communicates with the backend using axios.
-
-
-    Running the Project
-Backend
-
-    Navigate to the backend folder:
-    bash
-    Copy
-
-    cd backend
-
-    Start the server:
-    bash
-    Copy
-
-    node server.js
-
-Frontend
-
-    Navigate to the frontend folder:
-    bash
-    Copy
-
-    cd ../frontend
-
-    Start the React app:
-    bash
-    Copy
-
-    npm start
-
-
-    Usage
-
-    Open the frontend in your browser: http://localhost:3000.
-
-    Enter a valid username and phone number (from the dummy data).
-
-    Click Get OTP to receive an OTP via SMS.
-
-    Enter the OTP and click Login.
-
-    If the OTP is correct, you'll see a success message: "Hello <Username>, you are logged in!"
-
-Deployment
-
+## Deployment
 To deploy this project:
+- **Backend**: Use Cyclic.sh or Heroku.
+- **Frontend**: Use Vercel.
 
-    Backend: Use Cyclic.sh or Heroku.
+---
 
-    Frontend: Use Vercel.
-
-Contributing
-
+## Contributing
 Contributions are welcome! If you find any issues or want to add new features, feel free to open a pull request.
-License
 
+---
+
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
-Acknowledgments
 
-    Fast2SMS for the SMS API.
+---
 
-    React and Node.js for building the application.
-
-    
+## Acknowledgments
+- Fast2SMS for the SMS API.
+- React and Node.js for building the application.
